@@ -15,7 +15,8 @@ class CreateUserRoleTable extends Migration
     {
         Schema::create('user_role', function (Blueprint $table) {
             $table->id();
-            // these attributes must be the same datatype as the ids that defined in the users and roles tables - which are unsigned bigInts
+            // these attributes must be the same datatype as the ids that defined in the users and roles tables
+            // which are unsigned bigInts
             $table->bigInteger('user_id')->unsigned();
             $table->bigInteger('role_id')->unsigned();
             $table->timestamps();
