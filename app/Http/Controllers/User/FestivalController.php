@@ -21,9 +21,11 @@ class FestivalController extends Controller
      */
     public function index()
     {
+        // get all from the Festival Table
         $festivals = Festival::all();
         return view('user.festivals.index', [
-            // the view can see the festivals (the green one)
+           // put $festivals into 'festival'then
+            // the view will see the festivals (the green one below)
             'festivals' => $festivals
         ]);
     }
