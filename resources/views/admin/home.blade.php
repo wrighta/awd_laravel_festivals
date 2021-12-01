@@ -15,6 +15,7 @@
                     @endif
 
                    You are logged in as an Admin user!
+                   <a href="{{ route('admin.festivals.index')}}"> View All Festivals</a>
                 </div>
             </div>
         </div>

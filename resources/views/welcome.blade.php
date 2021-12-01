@@ -17,6 +17,9 @@
                     Welcome to Larafest.
 
                     Read more <a href="{{ route('about') }}"> about us </a>
+                    
+
+
                 </div>
             </div>
         </div>
