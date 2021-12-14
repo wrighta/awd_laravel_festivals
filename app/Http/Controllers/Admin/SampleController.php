@@ -1,19 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\User;
+namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Festival;
 
-class FestivalController extends Controller
+class SampleController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth');
-        $this->middleware('role:user, admin');
-    }
-
     /**
      * Display a listing of the resource.
      *
@@ -21,13 +14,7 @@ class FestivalController extends Controller
      */
     public function index()
     {
-        // get all from the Festival Table
-        $festivals = Festival::all();
-        return view('user.festivals.index', ['festivals' => $festivals ]);
-           // put $festivals into 'festival'then
-            // the view will see the festivals (the green one below)
-
-
+        //
     }
 
     /**
@@ -59,13 +46,8 @@ class FestivalController extends Controller
      */
     public function show($id)
     {
-        $festival = Festival::findOrFail($id);
-
-        return view('user.festivals.show', [
-            'festival' => $festival
-        ]);
+        //
     }
-
     /**
      * Show the form for editing the specified resource.
      *
@@ -76,7 +58,6 @@ class FestivalController extends Controller
     {
         //
     }
-
     /**
      * Update the specified resource in storage.
      *
@@ -88,7 +69,6 @@ class FestivalController extends Controller
     {
         //
     }
-
     /**
      * Remove the specified resource from storage.
      *

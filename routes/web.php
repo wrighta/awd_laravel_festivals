@@ -33,8 +33,13 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('admin/home', [App\Http\Controllers\Admin\HomeController::class, 'index'])->name('admin.home');
 Route::get('user/home', [App\Http\Controllers\User\HomeController::class, 'index'])->name('user.home');
 
+
+
+
 Route::get('/user/festivals/', [UserFestivalController::class, 'index'])->name('user.festivals.index');
 Route::get('/user/festivals/{id}', [UserFestivalController::class, 'show'])->name('user.festivals.show');
+
+
 
 Route::get('/admin/festivals/', [AdminFestivalController::class, 'index'])->name('admin.festivals.index');
 Route::get('/admin/festivals/create', [AdminFestivalController::class, 'create'])->name('admin.festivals.create');

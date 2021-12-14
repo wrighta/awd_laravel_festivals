@@ -93,11 +93,11 @@ class FestivalController extends Controller
      */
     public function edit($id)
     {
+        // get the festival by ID from the Database
         $festival = Festival::findOrFail($id);
 
-        // get the festival above, and then the edit view
-        // will display the festival, and allow the admin
-        // to edit the festival.
+        // Load the edit view and pass the festival to
+        // that view
         return view('admin.festivals.edit', [
             'festival' => $festival
         ]);
@@ -112,10 +112,6 @@ class FestivalController extends Controller
      */
     public function update(Request $request, $id)
     {
-
-        //When user clicks on submit on the Edit View
-        // this function will be called.
-
         // first get the existing festival that the user is update
         $festival = Festival::findOrFail($id);
         $request->validate([
@@ -137,7 +133,6 @@ class FestivalController extends Controller
         $festival->save();
 
         return redirect()->route('admin.festivals.index');
-
     }
 
     /**
