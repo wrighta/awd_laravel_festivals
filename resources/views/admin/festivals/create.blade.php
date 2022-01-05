@@ -20,7 +20,7 @@
                 </ul>
               </div>
             @endif
-            <form method="POST" action="{{ route('admin.festivals.store')  }}">
+            <form method="POST" action="{{ route('admin.festivals.store')  }}" enctype="multipart/form-data">
               <input type="hidden" name="_token" value="{{  csrf_token()  }}">
               <div class="form-group">
                 <label for="title">Title</label>
@@ -54,6 +54,12 @@
                 <label for="contact_phone">Contact Phone</label>
                 <input type="text" class="form-control" id="contact_phone" name="contact_phone" value="{{ old('contact_phone') }}" />
               </div>
+
+
+            <div class="form-group">
+                <label for="festival_image"> Festival Image </label>
+                <input type="file" class="form-control" id='festival_image' name="festival_image" />
+            </div>
 
               <a href="{{ route('admin.festivals.index') }}" class="btn btn-outline">Cancel</a>
               <button type="submit" class="btn btn-primary float-right">Submit</button>

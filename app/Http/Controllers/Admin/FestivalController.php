@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Festival;
+use Hash;
 
 
 class FestivalController extends Controller
@@ -46,14 +47,23 @@ class FestivalController extends Controller
      */
     public function store(Request $request)
     {
+
+
         // when user clicks submit on the create view above
         // the festival will be stored in the DB
         $request->validate([
+        //    'image_name' => 'mimes:jpeg,bmp,png',
             'title' => 'required',
             'description' =>'required|max:500',
             'start_date' => 'required|date|after:tomorrow',
-            'end_date' => 'required|date|after:tomorrow'
+            'end_date' => 'required|date|after:tomorrow',
+            'festival_image' => 'file|image'
         ]);
+
+        $festival_image = $request->file('festival_image');
+        $filename = $festival_image->hashName();
+
+        $path = $festival_image->storeAs('public/images', $filename);
 
         // if validation passes create the new book
         $festival = new Festival();
@@ -65,7 +75,10 @@ class FestivalController extends Controller
         $festival->contact_name = $request->input('contact_name');
         $festival->contact_email = $request->input('contact_email');
         $festival->contact_phone = $request->input('contact_phone');
+        $festival->image_location =  $filename;
         $festival->save();
+
+
 
         return redirect()->route('admin.festivals.index');
     }

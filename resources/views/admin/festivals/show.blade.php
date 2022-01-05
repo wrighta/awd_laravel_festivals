@@ -12,6 +12,9 @@
               <table id="table-festivals" class="table table-hover">
                 <tbody>
                   <tr>
+                      <td rowspan="8"><img src="{{ asset('storage/images/' . $festival->image_location) }}" width="150"/></td>
+                  </tr>
+                  <tr>
                     <td>Title</td>
                     <td>{{ $festival->title }}</td>
                   </tr>
